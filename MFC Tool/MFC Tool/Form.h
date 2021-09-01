@@ -3,7 +3,7 @@
 
 
 // Form 폼 뷰입니다.
-
+#include "ObjectTool.h"
 class Form : public CFormView
 {
 	DECLARE_DYNCREATE(Form)
@@ -22,11 +22,14 @@ public:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 #endif
-
+public:
+	CObjectTool m_tObjectTool;
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedObjectTool();
 };
 
 

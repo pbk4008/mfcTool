@@ -26,6 +26,7 @@ void Form::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(Form, CFormView)
+	ON_BN_CLICKED(IDC_BUTTON1, &Form::OnBnClickedObjectTool)
 END_MESSAGE_MAP()
 
 
@@ -47,3 +48,12 @@ void Form::Dump(CDumpContext& dc) const
 
 
 // Form 메시지 처리기입니다.
+
+
+void Form::OnBnClickedObjectTool()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	if (nullptr == m_tObjectTool.GetSafeHwnd())
+		m_tObjectTool.Create(IDD_OBJECTTOOL);
+	m_tObjectTool.ShowWindow(SW_SHOW);
+}

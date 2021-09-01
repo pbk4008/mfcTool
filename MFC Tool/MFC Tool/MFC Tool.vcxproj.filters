@@ -93,6 +93,9 @@
     <ClInclude Include="Terrain.h">
       <Filter>04.Terrain</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectTool.h">
+      <Filter>01.ToolView\Form\UnitTool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp">
@@ -133,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>04.Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectTool.cpp">
+      <Filter>01.ToolView\Form\UnitTool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -52,7 +52,7 @@ HRESULT CGraphicDevice::Initialize()
 void CGraphicDevice::BeginDraw()
 {
 	m_pDevice->Clear(0, nullptr, D3DCLEAR_STENCIL | D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,
-		D3DCOLOR_ARGB(255, 0, 0, 255), 1.f, 0);
+		D3DCOLOR_ARGB(255, 255, 0, 0), 1.f, 0);
 	m_pDevice->BeginScene();
 }
 

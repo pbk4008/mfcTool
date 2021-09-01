@@ -39,6 +39,9 @@ CMFCToolView::CMFCToolView()
 
 CMFCToolView::~CMFCToolView()
 {
+	Safe_Delete(mTerrain);
+	CTexturMgr::DestoryInstacne();
+	CGraphicDevice::DestoryInstacne();
 }
 
 BOOL CMFCToolView::PreCreateWindow(CREATESTRUCT& cs)
@@ -59,7 +62,24 @@ void CMFCToolView::OnDraw(CDC* /*pDC*/)
 		return;
 
 	m_pDevice->BeginDraw();
-	m_pDevice->EndDraw(m_hWnd);
+
+	m_pDevice->getSprite()->Begin(D3DXSPRITE_ALPHABLEND);
+
+	const TEXINFO* ptextInfo = CTexturMgr::getInstance()->getTexture(L"bg");
+	if (nullptr == ptextInfo)
+		return;
+	float fCenterX = ptextInfo->tTextureInfo.Width >> 1;
+	float fCenterY = ptextInfo->tTextureInfo.Height >> 1;
+
+	D3DXVECTOR3 pos = {WINCX>>1, WINCY>>1, 0.f};
+
+	m_pDevice->getSprite()->Draw(ptextInfo->pTexture, nullptr, nullptr/*&D3DXVECTOR3(fCenterX, fCenterY, 0.f)*/, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+	m_pDevice->getSprite()->End();
+
+	mTerrain->RenderTerrain();
+
+	m_pDevice->EndDraw();
 
 	// TODO: 여기에 원시 데이터에 대한 그리기 코드를 추가합니다.
 }
@@ -128,5 +148,10 @@ void CMFCToolView::OnInitialUpdate()
 
 	m_pDevice = CGraphicDevice::getInstance();
 	CTexturMgr::getInstance();
+	mTerrain = Terrain::Create();
+
+	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::SINGLE, L"../Source/chapterBG0001.png", L"bg");
+
+
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 }

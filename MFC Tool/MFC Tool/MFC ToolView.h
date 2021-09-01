@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "Terrain.h"
 
 class CMFCToolDoc;
 class CMFCToolView : public CView
@@ -18,6 +19,7 @@ public:
 // 작업입니다.
 public:
 	CGraphicDevice* m_pDevice;
+	Terrain* mTerrain;
 
 // 재정의입니다.
 public:

@@ -9,6 +9,7 @@
 
 #include "MFC ToolView.h"
 #include "MiniView.h"
+#include "Form.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -100,13 +101,13 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 {
-	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
-
 	m_MainSplitter.CreateStatic(this, 1, 2);
+	m_SecSplitter.CreateStatic(&m_MainSplitter, 2, 1, WS_CHILD | WS_VISIBLE, m_MainSplitter.IdFromRowCol(0, 0));
 
-	m_MainSplitter.CreateView(0, 0, RUNTIME_CLASS(CMiniView), CSize(200, 300), pContext);
+	m_SecSplitter.CreateView(0, 0, RUNTIME_CLASS(CMiniView), CSize(200, 300), pContext);
+	m_SecSplitter.CreateView(1, 0, RUNTIME_CLASS(Form), CSize(200, 300), pContext);
+
 	m_MainSplitter.CreateView(0, 1, RUNTIME_CLASS(CMFCToolView), CSize(WINCX, WINCY), pContext);
-
-
+	m_MainSplitter.SetColumnInfo(0, 300, 10);
 	return TRUE;/*CFrameWnd::OnCreateClient(lpcs, pContext);*/
 }

@@ -27,10 +27,19 @@ typedef struct tagInfo
 		ZeroMemory(&matWorld, sizeof(D3DXMATRIX));
 	}
 }INFO;
+
 typedef struct tagTexture
 {
 	LPDIRECT3DTEXTURE9 pTexture;
 	D3DXIMAGE_INFO tTextureInfo;
 	D3DXVECTOR3 tCenter;
 }TEXINFO;
+
+typedef struct tagTile {
+	D3DXVECTOR3 vPos;
+	D3DXVECTOR3 vSize;
+	DWORD dwDrawID;
+	DWORD dwOption;
+}TILE;
+
 #endif

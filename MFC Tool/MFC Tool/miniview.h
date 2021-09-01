@@ -14,6 +14,7 @@ protected:
 private:
 	CGraphicDevice* m_pDevice;
 	CTexturMgr* m_pTexture;
+	CMFCToolView* mMFCToolView;
 	LPD3DXSPRITE m_pSprite;
 public:
 	virtual void OnDraw(CDC* pDC);      // 이 뷰를 그리기 위해 재정의되었습니다.

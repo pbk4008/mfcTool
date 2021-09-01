@@ -1,12 +1,13 @@
-ï»¿//{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ì—ì„œ ìƒì„±í•œ í¬í•¨ íŒŒì¼ì…ë‹ˆë‹¤.
-// Tool.rcì—ì„œ ì‚¬ìš©ë˜ê³  ìˆìŠµë‹ˆë‹¤.
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++¿¡¼­ »ı¼ºÇÑ Æ÷ÇÔ ÆÄÀÏÀÔ´Ï´Ù.
+// MFC Tool.rc¿¡¼­ »ç¿ëµÇ°í ÀÖ½À´Ï´Ù.
 //
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
 #define IDR_MAINFRAME                   128
 #define IDR_ToolTYPE                    130
 #define IDD_CMyForm                     310
+#define IDD_FORMVIEW                    311
 
 // Next default values for new objects
 // 
@@ -15,6 +16,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        310
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
-#define _APS_NEXT_SYMED_VALUE           311
+#define _APS_NEXT_SYMED_VALUE           312
 #endif
 #endif

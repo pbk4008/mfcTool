@@ -1,4 +1,5 @@
 #pragma once
+#include "afxwin.h"
 
 
 // CObjectTool 대화 상자입니다.
@@ -20,4 +21,9 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CListBox m_ListBox;
+	afx_msg void OnDropFiles(HDROP hDropInfo);
+	CStatic m_Picture;
+	afx_msg void OnLbnSelchangeTexture();
 };

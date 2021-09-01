@@ -43,6 +43,9 @@
     <Filter Include="04.Terrain">
       <UniqueIdentifier>{2f40e058-99fd-4400-8a44-96f463fce8c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.FileInfo">
+      <UniqueIdentifier>{6c30fff3-a566-46f2-9446-5ba7ff6fc9b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -96,6 +99,9 @@
     <ClInclude Include="ObjectTool.h">
       <Filter>01.ToolView\Form\UnitTool</Filter>
     </ClInclude>
+    <ClInclude Include="FileInfo.h">
+      <Filter>05.FileInfo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp">
@@ -139,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="ObjectTool.cpp">
       <Filter>01.ToolView\Form\UnitTool</Filter>
+    </ClCompile>
+    <ClCompile Include="FileInfo.cpp">
+      <Filter>05.FileInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

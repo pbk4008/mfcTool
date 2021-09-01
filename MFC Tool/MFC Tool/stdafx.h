@@ -51,6 +51,7 @@ using namespace std;
 #include "SingleTon.h"
 #include "GraphicDevice.h"
 #include "TexturMgr.h"
+#include "FileInfo.h"
 
 #ifdef _UNICODE
 #if defined _M_IX86

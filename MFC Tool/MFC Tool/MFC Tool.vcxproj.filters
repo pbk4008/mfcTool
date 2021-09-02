@@ -105,7 +105,9 @@
     <ClInclude Include="FileInfo.h">
       <Filter>05.FileInfo</Filter>
     </ClInclude>
-    <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Mouse.h">
+      <Filter>06.Mouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp">
@@ -153,7 +155,9 @@
     <ClCompile Include="FileInfo.cpp">
       <Filter>05.FileInfo</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Mouse.cpp">
+      <Filter>06.Mouse</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\MFC Tool.ico">

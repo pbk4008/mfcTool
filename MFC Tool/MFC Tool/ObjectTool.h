@@ -40,4 +40,6 @@ public:
 	afx_msg void OnBnClickedDelete();
 	afx_msg void OnBnClickedSave();
 	afx_msg void OnBnClickedLoad();
+public:
+	void LoadFile();
 };

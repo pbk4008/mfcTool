@@ -223,11 +223,16 @@ void CObjectTool::OnBnClickedSave()
 
 void CObjectTool::OnBnClickedLoad()
 {
+	LoadFile();
+}
+
+void CObjectTool::LoadFile()
+{
 	CFileDialog Dlg(true, L"dat", L"*.dat");
 
 	TCHAR szFilePath[MAX_PATH] = L"";
 
-	GetCurrentDirectory(MAX_PATH,szFilePath);
+	GetCurrentDirectory(MAX_PATH, szFilePath);
 	PathRemoveFileSpec(szFilePath);
 	lstrcat(szFilePath, L"../Data");
 	Dlg.m_ofn.lpstrInitialDir = szFilePath;
@@ -247,7 +252,7 @@ void CObjectTool::OnBnClickedLoad()
 		DWORD dwStrByte = 0;
 		TCHAR* pStr = nullptr;
 		OBJINFO* pInfo = nullptr;
-		while(true)
+		while (true)
 		{
 			pInfo = new OBJINFO;
 

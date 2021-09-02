@@ -14,6 +14,7 @@ public:
 	inline void SetRenderID(int _idx) { idx = _idx; SetChkMouse(true); };
 	void RenderMouse(HWND _pHWnd);
 	void ReleaseMouse();
+	void RenderObj(HWND _pHWnd,OBJINFO* _obj);
 
 private:
 	bool chkMouse;

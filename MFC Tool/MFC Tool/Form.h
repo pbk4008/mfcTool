@@ -30,6 +30,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedObjectTool();
+
+	CListBox m_ListBox;
+	DWORD dwDrawID;
+	afx_msg void OnDropFiles(HDROP hDropInfo);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLbnSelchangePickTexture();
 };
 
 

@@ -6,6 +6,7 @@
 #include "Terrain.h"
 
 class CMFCToolDoc;
+class Mouse;
 class CMFCToolView : public CView
 {
 protected: // serialization에서만 만들어집니다.
@@ -20,6 +21,7 @@ public:
 public:
 	CGraphicDevice* m_pDevice;
 	Terrain* mTerrain;
+	Mouse* mouse;
 
 // 재정의입니다.
 public:

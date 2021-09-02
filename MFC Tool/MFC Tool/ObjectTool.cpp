@@ -99,17 +99,14 @@ void CObjectTool::OnLbnSelchangeTexture()
 	const TEXINFO* pTexInfo = CTexturMgr::getInstance()->getTexture(wstrTextureName.GetString(), L"Walk");
 	if (nullptr == pTexInfo)
 		return;
-<<<<<<< HEAD
+
 
 	RECT rc;
 	m_Picture.GetWindowRect(&rc);
 	D3DXMATRIX matScale, matTrans, matWorld;
+	D3DXMatrixScaling(&matScale, 50.f, 50.f, 0);
 	D3DXMatrixTranslation(&matTrans, rc.left + 5.f, rc.top+5.f, 0.f);
-=======
-	D3DXMATRIX matScale, matTrans, matWorld;
-	D3DXMatrixScaling(&matScale, 1.f, 1.f, 0.f);
-	D3DXMatrixTranslation(&matTrans, 0, 0, 0.f);
->>>>>>> main
+
 	matWorld = matScale * matTrans;
 
 	CGraphicDevice::getInstance()->getSprite()->SetTransform(&matWorld);

@@ -55,13 +55,10 @@ void CGraphicDevice::BeginDraw()
 		D3DCOLOR_ARGB(255, 255, 0, 0), 1.f, 0);
 	m_pDevice->BeginScene();
 
-	m_pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 }
 
 void CGraphicDevice::EndDraw(HWND _hWnd)
 {
-	m_pSprite->End();
-
 	m_pDevice->EndScene();
 	m_pDevice->Present(nullptr, nullptr, _hWnd, nullptr);
 }

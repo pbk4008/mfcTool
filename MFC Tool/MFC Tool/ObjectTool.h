@@ -21,9 +21,23 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 	DECLARE_MESSAGE_MAP()
+private:
+	bool CheckRadioBtn(const CButton* pBtn);
 public:
 	CListBox m_ListBox;
 	afx_msg void OnDropFiles(HDROP hDropInfo);
 	CStatic m_Picture;
 	afx_msg void OnLbnSelchangeTexture();
+	virtual BOOL OnInitDialog();
+	// enum값을 추가 하면 됩니다.
+	CComboBox m_tComboBox;
+	CButton m_tMoveCheck[2];
+	CButton m_tDestroyCheck[2];
+	CListBox m_tObjListBox;
+	CString m_tName;
+	map<CString, OBJINFO*> m_InfoMap;
+	afx_msg void OnBnClickedInitialize();
+	afx_msg void OnBnClickedDelete();
+	afx_msg void OnBnClickedSave();
+	afx_msg void OnBnClickedLoad();
 };

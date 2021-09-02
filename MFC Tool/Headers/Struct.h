@@ -42,4 +42,12 @@ typedef struct tagTile {
 	DWORD dwOption;
 }TILE;
 
+typedef struct tagObjInfo
+{
+	CString strObjKey;
+	CString strName;
+	OBJID eID;
+	bool bMove;
+	bool bDestroy;
+}OBJINFO;
 #endif

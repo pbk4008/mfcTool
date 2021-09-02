@@ -153,5 +153,7 @@ void CMFCToolView::OnInitialUpdate()
 	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::SINGLE, L"../Source/chapterBG0001.png", L"bg");
 
 	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::MULTI, L"../Texture/Monster/Octo/Walk/Octo0%d.png", L"Octo", L"Walk", 2);
+	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::SINGLE, L"../Texture/Monster/Goomba/Goomba.png", L"Goomba");
+
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 }

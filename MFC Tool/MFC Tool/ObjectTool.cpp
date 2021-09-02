@@ -78,8 +78,6 @@ void CObjectTool::OnLbnSelchangeTexture()
 		if (isdigit(wstrTextureName[i]))
 			break;
 	}
-
-
 	if (i != 0)
 		wstrTextureName.Delete(i, iTextureNameSize - 1);
 
@@ -89,9 +87,11 @@ void CObjectTool::OnLbnSelchangeTexture()
 	if (nullptr == pTexInfo)
 		return;
 
+	RECT rc;
+	m_Picture.GetWindowRect(&rc);
 	D3DXMATRIX matScale, matTrans, matWorld;
-	D3DXMatrixScaling(&matScale, 50.f, 50.f, 0.f);
-	D3DXMatrixTranslation(&matTrans, 0, 0, 0.f);
+	D3DXMatrixScaling(&matScale, 10.f, 10.f, 0.f);
+	D3DXMatrixTranslation(&matTrans, rc.left + 5.f, rc.top+5.f, 0.f);
 	matWorld = matScale * matTrans;
 
 	CGraphicDevice::getInstance()->getSprite()->SetTransform(&matWorld);

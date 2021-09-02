@@ -12,6 +12,8 @@
 #include "MFC ToolDoc.h"
 #include "MFC ToolView.h"
 #include "MainFrm.h"
+#include "Form.h"
+#include "Mouse.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -27,6 +29,8 @@ BEGIN_MESSAGE_MAP(CMFCToolView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_WM_DROPFILES()
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // CMFCToolView 생성/소멸
@@ -40,6 +44,7 @@ CMFCToolView::CMFCToolView()
 CMFCToolView::~CMFCToolView()
 {
 	Safe_Delete(mTerrain);
+	Safe_Delete(mouse);
 	CTexturMgr::DestoryInstacne();
 	CGraphicDevice::DestoryInstacne();
 }
@@ -68,12 +73,14 @@ void CMFCToolView::OnDraw(CDC* /*pDC*/)
 	const TEXINFO* ptextInfo = CTexturMgr::getInstance()->getTexture(L"bg");
 	if (nullptr == ptextInfo)
 		return;
-	float fCenterX = ptextInfo->tTextureInfo.Width >> 1;
-	float fCenterY = ptextInfo->tTextureInfo.Height >> 1;
+	//float fCenterX = ptextInfo->tTextureInfo.Width >> 1;
+	//float fCenterY = ptextInfo->tTextureInfo.Height >> 1;
 
 	D3DXVECTOR3 pos = {WINCX>>1, WINCY>>1, 0.f};
 
 	m_pDevice->getSprite()->Draw(ptextInfo->pTexture, nullptr, nullptr/*&D3DXVECTOR3(fCenterX, fCenterY, 0.f)*/, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+	mouse->RenderMouse(m_hWnd);
 
 	m_pDevice->getSprite()->End();
 
@@ -81,6 +88,8 @@ void CMFCToolView::OnDraw(CDC* /*pDC*/)
 
 	m_pDevice->EndDraw();
 
+
+	Invalidate(false);
 	// TODO: 여기에 원시 데이터에 대한 그리기 코드를 추가합니다.
 }
 
@@ -152,8 +161,43 @@ void CMFCToolView::OnInitialUpdate()
 
 	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::SINGLE, L"../Source/chapterBG0001.png", L"bg");
 
+<<<<<<< HEAD
 	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::MULTI, L"../Texture/Monster/Octo/Walk/Octo0%d.png", L"Octo", L"Walk", 2);
 	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::SINGLE, L"../Texture/Monster/Goomba/Goomba.png", L"Goomba");
 
+=======
+	CTexturMgr::getInstance()->InsertTexture(TEXTYPE::SINGLE, L"../Texture/Monster/Octo/Walk/Octo01.png", L"Octo01");
+
+	//CTexturMgr::getInstance()->InsertTexture(TEXTYPE::MULTI, L"../Texture/Monster/Octo/Walk/Octo%d.png", L"Octo", L"Walk", 2);
+>>>>>>> main
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+
+	mouse = Mouse::getInstance();
+}
+
+void CMFCToolView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	CView::OnLButtonDown(nFlags, point);
+	CMainFrame* pMain = dynamic_cast<CMainFrame*>(AfxGetApp()->GetMainWnd());
+	Form* cForm = dynamic_cast<Form*>(pMain->m_SecSplitter.GetPane(1, 0));
+
+	int idx = cForm->m_ListBox.GetCurSel();
+	CString str;
+	cForm->m_ListBox.GetText(idx,str);
+
+	auto& iter = cForm->m_InfoMap.find(str);
+
+
+	m_pDevice->BeginDraw();
+
+	m_pDevice->getSprite()->Begin(D3DXSPRITE_ALPHABLEND);
+
+
+	mouse->RenderObj(m_hWnd, iter->second);
+
+	m_pDevice->getSprite()->End();
+
+	m_pDevice->EndDraw();
+
+
 }

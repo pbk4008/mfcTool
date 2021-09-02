@@ -46,6 +46,9 @@
     <Filter Include="05.FileInfo">
       <UniqueIdentifier>{6c30fff3-a566-46f2-9446-5ba7ff6fc9b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.Mouse">
+      <UniqueIdentifier>{6ce150ac-b10c-4240-8e7f-1a8e2e658035}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -102,6 +105,9 @@
     <ClInclude Include="FileInfo.h">
       <Filter>05.FileInfo</Filter>
     </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>06.Mouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp">
@@ -148,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="FileInfo.cpp">
       <Filter>05.FileInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>06.Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
